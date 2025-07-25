@@ -1,0 +1,16 @@
+"filename", "language", "Python", "pip requirements", "Markdown", "comment", "blank", "total"
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\README.md", "Markdown", 0, 0, 9, 0, 4, 13
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\display_results.py", "Python", 46, 0, 0, 5, 10, 61
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\isentropic_compression.py", "Python", 6, 0, 0, 0, 3, 9
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\isentropic_expansion.py", "Python", 3, 0, 0, 0, 2, 5
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\main_past.py", "Python", 60, 0, 0, 14, 15, 89
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\thermal_efficiency.py", "Python", 3, 0, 0, 0, 1, 4
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\work_and_heat.py", "Python", 9, 0, 0, 0, 4, 13
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\gui\app.py", "Python", 234, 0, 0, 19, 53, 306
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\gui\plotting.py", "Python", 24, 0, 0, 1, 10, 35
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\main.py", "Python", 4, 0, 0, 0, 2, 6
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\requirements.txt", "pip requirements", 0, 13, 0, 0, 1, 14
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\simulation\brayton_cycle.py", "Python", 54, 0, 0, 6, 9, 69
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\simulation\thermodynamics.py", "Python", 21, 0, 0, 0, 7, 28
+"c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\testing.py", "Python", 1, 0, 0, 0, 1, 2
+"Total", "-", 465, 13, 9, 45, 122, 654

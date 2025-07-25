@@ -1,0 +1,44 @@
+Date : 2025-07-25 13:59:43
+Directory : c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation
+Total : 14 files,  487 codes, 45 comments, 122 blanks, all 654 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Python           |         12 |        465 |         45 |        117 |        627 |
+| pip requirements |          1 |         13 |          0 |          1 |         14 |
+| Markdown         |          1 |          9 |          0 |          4 |         13 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                          | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                             |         14 |        487 |         45 |        122 |        654 |
+| . (Files)                                                                                     |          4 |         27 |          0 |          8 |         35 |
+| archive                                                                                       |          6 |        127 |         19 |         35 |        181 |
+| gui                                                                                           |          2 |        258 |         20 |         63 |        341 |
+| simulation                                                                                    |          2 |         75 |          6 |         16 |         97 |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                      | language         | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\README.md                         | Markdown         |          9 |          0 |          4 |         13 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\display_results.py        | Python           |         46 |          5 |         10 |         61 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\isentropic_compression.py | Python           |          6 |          0 |          3 |          9 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\isentropic_expansion.py   | Python           |          3 |          0 |          2 |          5 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\main_past.py              | Python           |         60 |         14 |         15 |         89 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\thermal_efficiency.py     | Python           |          3 |          0 |          1 |          4 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\archive\work_and_heat.py          | Python           |          9 |          0 |          4 |         13 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\gui\app.py                        | Python           |        234 |         19 |         53 |        306 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\gui\plotting.py                   | Python           |         24 |          1 |         10 |         35 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\main.py                           | Python           |          4 |          0 |          2 |          6 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\requirements.txt                  | pip requirements |         13 |          0 |          1 |         14 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\simulation\brayton_cycle.py       | Python           |         54 |          6 |          9 |         69 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\simulation\thermodynamics.py      | Python           |         21 |          0 |          7 |         28 |
+| c:\Users\User\OneDrive\Documents\GitHub\JetEngineSimulation\testing.py                        | Python           |          1 |          0 |          1 |          2 |
+| Total                                                                                         |                  |        487 |         45 |        122 |        654 |
++-----------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
