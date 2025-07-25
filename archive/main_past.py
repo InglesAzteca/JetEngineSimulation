@@ -5,7 +5,7 @@ from archive.isentropic_expansion import turbine_exit_temperature
 from archive.isentropic_compression import compressor_exit_temperature, compressor_exit_pressure
 from archive.thermal_efficiency import ideal_efficiency
 from archive.work_and_heat import compressor_work, turbine_work, heat_added
-from display_results import display_temperature, display_work, display_efficiency
+from archive.display_results import display_temperature, display_work, display_efficiency
 
 # Constants
 gamma = 1.4          # Heat capacity ratio for air
