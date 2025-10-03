@@ -10,4 +10,4 @@ A Python model of an ideal Brayton Cycle to simulate basic jet engine thermodyna
 ## Output
 - Thermal efficiency
 - Stage-by-stage temperatures
-- Performance plots (coming soon)
+- Performance plots 
