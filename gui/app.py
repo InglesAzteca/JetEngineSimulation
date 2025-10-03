@@ -1,8 +1,9 @@
 import customtkinter as ctk
 from tkinter import messagebox
-from gui.plotting import plot_cycle
+from gui.plotting import plot_P_vs_T, plot_T_vs_s, plot_efficiency_vs_rp, plot_net_work_vs_rp
 from simulation.brayton_cycle import BraytonCycle
 from tkinter import filedialog
+import math
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
@@ -48,7 +49,7 @@ class JetEngineApp(ctk.CTk):
                             "eta_c": (0.7, 0.95),         # Compressor efficiency
                             "eta_t": (0.7, 0.95),         # Turbine efficiency
 }
-
+        self.plot_type_dropdown = None
         self.sliders = {}
         self.create_widgets()
 
@@ -149,28 +150,43 @@ class JetEngineApp(ctk.CTk):
         reset_button = ctk.CTkButton(master=frame, text="Reset", command=self.reset)
         reset_button.grid(row=2, column=1, padx=10, pady=(0, 10), sticky="w")
 
-        # Output box
-        self.output_box = ctk.CTkTextbox(master=frame, width=340, height=200)
-        self.output_box.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
-        self.output_box.insert("0.0", "Output will appear here...\n")
+        # # Output box
+        # self.output_box = ctk.CTkTextbox(master=frame, width=340, height=200)
+        # self.output_box.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+        # self.output_box.insert("0.0", "Output will appear here...\n")
 
     def build_right_frame(self, frame):
         # Dropdown top left
-        page_dropdown = ctk.CTkComboBox(frame, values=["Brayton Cycle", "Comparison Mode"], width=160, state="readonly")
-        page_dropdown.grid(row=0, column=0, sticky="w", padx=10, pady=(10, 0))
-        page_dropdown.set("P vs T")
+        self.plot_type_dropdown = ctk.CTkComboBox(frame, 
+                                                  values=[
+                                                      "P vs T", 
+                                                      "T vs s", 
+                                                      "Efficiency vs Pressure Ratio", 
+                                                      "Net Work vs Pressure Ratio"], 
+                                                  width=180, 
+                                                  state="readonly",
+                                                  command=self.update_plot)
+        self.plot_type_dropdown.set("P vs T")
+        self.plot_type_dropdown.grid(row=0, column=1, sticky="w", padx=10, pady=(10, 0))
+        
+        # Output box
+        self.output_box = ctk.CTkTextbox(master=frame, width=180)
+        self.output_box.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        self.output_box.insert("0.0", "Output will appear here...\n")
 
         # Graph Canvas
         self.graph_canvas = ctk.CTkFrame(frame, fg_color="black")
-        self.graph_canvas.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        self.graph_canvas.grid(row=1, column=1, columnspan=2, padx=10, pady=10, sticky="nsew")
 
         # Save Button
         save_btn = ctk.CTkButton(frame, text="Save Graph", command=self.save_graph)
-        save_btn.grid(row=2, column=0, padx=10, pady=(0, 10), sticky="e")
+        save_btn.grid(row=0, column=2, padx=10, pady=(10, 0), sticky="e")
 
         # Allow graph canvas to expand
         frame.grid_rowconfigure(1, weight=1)
-        frame.grid_columnconfigure(0, weight=1)
+        frame.grid_columnconfigure(1, weight=1)
+
+        frame.grid_rowconfigure(1, weight=1)
 
     def create_widgets(self):
         # Tab structure
@@ -216,7 +232,9 @@ class JetEngineApp(ctk.CTk):
                     self.sliders[key].set(float(value))
                 except ValueError:
                     pass
-
+    
+    def update_plot(self, _=None):
+        self.run_simulation()
 
     def reset(self):
         # Clear all input entries
@@ -267,7 +285,37 @@ class JetEngineApp(ctk.CTk):
             P4 = P1
             P_vals = [P1, P2, P3, P4, P1]
 
-            self.current_figure = plot_cycle(self.graph_canvas, T_vals, P_vals)
+
+            plot_type = self.plot_type_dropdown.get()
+
+            if plot_type == "P vs T":
+                self.current_figure = plot_P_vs_T(self.graph_canvas, T_vals, P_vals)
+            elif plot_type == "T vs s":
+                cp = 1005 # J/kg·K (ideal air)
+                gamma = 1.4
+                R = cp * (1 - 1 / gamma)
+
+                s1 = 0
+                s2 = s1 + (cp * math.log(T2 / T1) - R * math.log(P2 / P1)) / 1000
+                s3 = s2 + (cp * math.log(T3 / T2)) / 1000
+                s4 = s3 + (cp * math.log(T4 / T3) - R * math.log(P1 / P2)) / 1000
+                s1_closure = s4 + (cp * math.log(T1 / T4)) / 1000
+
+                s_vals = [s1, s2, s3, s4, s1_closure]
+
+                self.current_figure = plot_T_vs_s(self.graph_canvas, s_vals, T_vals)
+            elif plot_type == "Efficiency vs Pressure Ratio":
+                self.current_figure = plot_efficiency_vs_rp(self.graph_canvas)
+            elif plot_type == "Net Work vs Pressure Ratio":
+                T1 = float(self.entries["T1"].get())
+                Tmax = float(self.entries["Tmax"].get())
+                eta_c = float(self.entries["eta_c"].get())
+                eta_t = float(self.entries["eta_t"].get())
+
+                self.current_figure = plot_net_work_vs_rp(
+                    self.graph_canvas, T1, Tmax, eta_c, eta_t
+                )
+
 
         except ValueError:
             messagebox.showerror("Input Error", "Please enter valid numeric values.")
